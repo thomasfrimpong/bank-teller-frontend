@@ -50,16 +50,7 @@ export const authOptions = {
     signIn: "/",
   },
   callbacks: {
-    async jwt({
-      token,
-      user,
-      session,
-    }: {
-      token: any;
-      user: any;
-      session: any;
-      trigger: any;
-    }) {
+    async jwt({ token, user, session }) {
       //console.log("jwt callback", { token, user, session });
 
       //pass in user token
@@ -72,15 +63,7 @@ export const authOptions = {
       }
       return token;
     },
-    async session({
-      session,
-      token,
-      user,
-    }: {
-      session: any;
-      token: any;
-      user: any;
-    }) {
+    async session({ session, token, user }) {
       console.log("session callback", { session, token, user });
       // pass in user token session
       return {
